@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background-color: rgba(91, 141, 255, 0.28);
+  color: #fff;
+}
+
+html {
+  scrollbar-color: #2a2a31 #0a0a0c;
+  scrollbar-width: thin;
+}
+
+body {
+  background-color: #0a0a0c;
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(91, 141, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(255, 180, 84, 0.05), transparent 35%);
+  background-attachment: fixed;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0a0a0c; }
+::-webkit-scrollbar-thumb { background: #2a2a31; border-radius: 8px; border: 2px solid #0a0a0c; }
+::-webkit-scrollbar-thumb:hover { background: #38383f; }
+
+:focus-visible {
+  outline: 2px solid #5B8DFF;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply max-w-content mx-auto px-6 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] tracking-[0.25em] uppercase text-accent-soft/80 flex items-center gap-2;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-semibold tracking-tight text-ink;
+  }
+
+  .glass-panel {
+    @apply bg-surface/60 backdrop-blur-xl border border-surface-border/80;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-ink text-bg font-medium text-sm px-5 py-2.5
+      transition-all duration-300 hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-lg border border-surface-border bg-surface/50 text-ink
+      font-medium text-sm px-5 py-2.5 transition-all duration-300 hover:border-accent/60 hover:bg-surface-2
+      hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .card {
+    @apply bg-surface/70 border border-surface-border rounded-2xl shadow-card;
+  }
+
+  .tag {
+    @apply font-mono text-[11px] tracking-wide uppercase px-2.5 py-1 rounded-md bg-surface-2 border border-surface-border text-ink-soft;
+  }
+}
